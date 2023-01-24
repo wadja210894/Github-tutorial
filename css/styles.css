@@ -1,3 +1,11 @@
-.body{
-      color: rgb(102, 102, 6);
- }
+pre {
+      font-family: 'Arial', 'Helvetica', sans-serif;
+      color: #2a2a2a;
+      font-size: 16px;
+    }
+    
+    pre::first-letter {
+      font-family: 'Tahoma', serif;
+      font-size: 32px;
+      color: #f44336;
+    }

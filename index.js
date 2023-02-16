@@ -1,35 +1,25 @@
-// Example 2 - Сховище
-// Напиши клас Storage який створює об'єкти для керування складом товарів. При виклику отримуватиме один аргумент - початковий масив товарів
-// і записуватиме його властивість items.
+// Example 5 - Toggle
+// Напишіть клас Toggle який приймає об'єкт налаштувань {isOpen: boolean} і оголошує одну властивість on - стан вкл/викл (true/false).
+//За замовчуванням значення властивості on повинно бути false.
 
-// Додай методи класу:
-
-// getItems() - повертає масив товарів.
-// addItem(item) - отримує новий товар і додає його до поточних.
-// removeItem(item) - отримує товар і, якщо він є, видаляє його з поточних.
-
-class Storage { 
-  constructor(items) { 
-    this.items = items;
+class Toggle {
+  constructor({isOpen} = false) { 
+    this.on = isOpen || false;
   }
 
-  getItems() { 
-    return this.items;
-  }
+  toggle =  () => this.on = !this.on;
+}
 
-  addItem = (item) => this.items.push(item);
+const firstToggle = new Toggle({ isOpen: true });
+console.group('firstToggle');
+console.log(firstToggle.on);
+firstToggle.toggle();
+console.log(firstToggle.on);
+console.groupEnd('firstToggle');
 
-  removeItem = (item) => this.items = this.items.filter(value => value !== item);
-
-};
-
-const storage = new Storage(['🍎', '🍋', '🍇', '🍑']);
-
-const items = storage.getItems();
-console.table(items); // [ '🍎', '🍋', '🍇', '🍑' ]
-
-storage.addItem('🍌');
-console.table(storage.items); // [ '🍎', '🍋', '🍇', '🍑', '🍌' ]
-
-storage.removeItem('🍋');
-console.table(storage.items); // [ '🍎', '🍇', '🍑', '🍌' ]
+const secondToggle = new Toggle();
+console.group('secondToggle');
+console.log(secondToggle.on);
+secondToggle.toggle();
+console.log(secondToggle.on);
+console.groupEnd('secondToggle');
